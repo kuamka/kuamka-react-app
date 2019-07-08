@@ -4,7 +4,7 @@
 // Copyright © 2019 Kuamka Ltd. All rights reserved.
 //
 
-import React from "react";
+import React, { useState } from "react";
 import Select from "react-select";
 
 import { CatInfo } from "../CatInfo";
@@ -21,12 +21,16 @@ export const CatPicker = React.memo((props: CatPickerProps) => {
     return { label: cat.name, value: cat };
   });
 
+  const [state, setState] = useState({ selectedOption: options[0] });
+
   return (
     <div className="CatPicker">
       <Select
+        value={state.selectedOption}
         options={options}
-        onChange={(selectedOption: any) => {
-          props.onChange(selectedOption.value);
+        onChange={(newOption: any) => {
+          props.onChange(newOption.value);
+          setState({ selectedOption: newOption });
         }}
       />
     </div>

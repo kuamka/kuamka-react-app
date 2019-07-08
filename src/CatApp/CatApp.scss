@@ -1,0 +1,16 @@
+//
+// CatApp.scss
+//
+// Copyright © 2019 Kuamka Ltd All rights reserved.
+//
+
+.CatApp {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: top;
+
+  .CatPicker {
+    padding-right: 30px;
+  }
+}

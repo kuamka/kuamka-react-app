@@ -1,35 +1,10 @@
 //
-// CatRotator.scss
+// CatPicker.scss
 //
 // Copyright © 2019 Kuamka Ltd All rights reserved.
 //
 
-.CatRotator {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  font-size: 20px;
+.CatPicker {
   font-family: Arial, Helvetica, sans-serif;
-
-  .Image {
-    max-width: 400px;
-    max-height: 400px;
-    padding: 20px;
-  }
-
-  .Rotating {
-    animation: rotation 2s infinite linear;
-  }
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
+  width: 300px;
 }
