@@ -22,6 +22,7 @@ const cats = [
   { name: "Custard", image: custard },
   { name: "Heidi", image: heidi }
 ];
+
 export const CatApp = () => {
   const [state, setState] = useState({ cat: cats[0] });
 
