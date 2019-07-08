@@ -15,9 +15,11 @@ import testCat from "../TestCat.svg";
 const stories = storiesOf("CatRotator", module);
 stories.addDecorator(withKnobs);
 
-const catInfo = {
-  name: text("Cat name", "Test Cat"),
-  image: text("Cat image", testCat)
-};
-
-stories.add("render", () => <CatRotator cat={catInfo} />);
+stories.add("render", () => (
+  <CatRotator
+    cat={{
+      name: text("Cat name", "Test Cat"),
+      image: text("Cat image", testCat)
+    }}
+  />
+));
