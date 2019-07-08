@@ -1,5 +1,6 @@
 {
-    "cSpell.words": [
-        "kuamka"
-    ]
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "cSpell.words": ["kuamka"]
 }

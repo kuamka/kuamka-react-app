@@ -5,14 +5,19 @@
 //
 
 import { storiesOf } from "@storybook/react";
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text } from "@storybook/addon-knobs";
 
 import React from "react";
 
 import { CatRotator } from "./CatRotator";
-import catSVG from "./cat.svg";
+import testCat from "../TestCat.svg";
 
 const stories = storiesOf("CatRotator", module);
 stories.addDecorator(withKnobs);
 
-stories.add("render", () => <CatRotator name={text('Cat name', 'Test Cat')} image={text('Cat image', catSVG)} />);
+const catInfo = {
+  name: text("Cat name", "Test Cat"),
+  image: text("Cat image", testCat)
+};
+
+stories.add("render", () => <CatRotator cat={catInfo} />);
