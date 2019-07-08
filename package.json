@@ -3,10 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@storybook/addon-knobs": "^5.1.9",
-    "@types/react-select": "^3.0.0",
-    "@types/storybook__addon-knobs": "^5.0.2",
-    "@types/storybook__react": "^4.0.2",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -16,6 +12,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --collectCoverage --watchAll=false",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
@@ -36,6 +33,12 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-knobs": "^5.1.9",
+    "@storybook/addon-storyshots": "^5.1.9",
+    "@types/react-select": "^3.0.0",
+    "@types/storybook__addon-knobs": "^5.0.2",
+    "@types/storybook__addon-storyshots": "^4.0.1",
+    "@types/storybook__react": "^4.0.2",
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/addon-links": "^5.1.9",
     "@storybook/addons": "^5.1.9",
@@ -45,6 +48,8 @@
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
     "react-scripts": "3.0.1",
+    "react-test-renderer": "^16.8.6",
+    "require-context.macro": "^1.0.4",
     "typescript": "3.5.2"
   }
 }
