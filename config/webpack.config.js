@@ -52,9 +52,9 @@ module.exports = function(webpackEnv) {
   // Webpack uses `publicPath` to determine where the app is being served from.
   // It requires a trailing slash, or the file assets will get an incorrect path.
   // In development, we always serve from the root. This makes config easier.
-  const publicPath = isEnvProduction
-    ? paths.servedPath
-    : isEnvDevelopment && "/";
+  //
+  // Steve: Changed this to match our test path for EF
+  const publicPath = "../../media/build/";
   // Some apps do not use client-side routing with pushState.
   // For these, "homepage" can be set to "." to enable relative asset paths.
   const shouldUseRelativeAssetPaths = publicPath === "./";
@@ -176,7 +176,8 @@ module.exports = function(webpackEnv) {
           (info => path.resolve(info.absoluteResourcePath).replace(/\\/g, "/"))
     },
     optimization: {
-      minimize: isEnvProduction,
+      // Steve: Turn of minimiser for our experiments
+      minimize: false,
       minimizer: [
         // This is only used in production mode
         new TerserPlugin({
@@ -239,17 +240,7 @@ module.exports = function(webpackEnv) {
               : false
           }
         })
-      ],
-      // Automatically split vendor and commons
-      // https://twitter.com/wSokra/status/969633336732905474
-      // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
-      splitChunks: {
-        chunks: "all",
-        name: false
-      },
-      // Keep the runtime chunk separated to enable long term caching
-      // https://twitter.com/wSokra/status/969679223278505985
-      runtimeChunk: true
+      ]
     },
     resolve: {
       // This allows you to set a fallback for where Webpack should look for modules.
