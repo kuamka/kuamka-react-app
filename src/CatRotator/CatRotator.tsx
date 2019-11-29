@@ -4,31 +4,31 @@
 // Copyright © 2019 Kuamka Ltd. All rights reserved.
 //
 
-import React, { useState } from "react";
+import { observer } from "mobx-react-lite";
+import React from "react";
 
-import { CatInfo } from "../CatInfo";
+import { CatStore } from "../CatStore";
 
 import "./CatRotator.scss";
 
 export interface CatRotatorProps {
-  cat: CatInfo;
+  store: CatStore;
 }
 
-export const CatRotator = React.memo((props: CatRotatorProps) => {
-  const [state, setState] = useState({ rotating: false });
-
+export const CatRotator = observer((props: CatRotatorProps) => {
   return (
     <div
       className="CatRotator"
       onClick={() => {
-        setState({ rotating: !state.rotating });
+        props.store.rotating = !props.store.rotating;
       }}
     >
       <img
-        className={state.rotating ? "Image Rotating" : "Image"}
-        src={props.cat.image}
+        className={props.store.rotating ? "Image Rotating" : "Image"}
+        src={props.store.cat.image}
+        alt={props.store.cat.name}
       />
-      <span className="Name">{props.cat.name}</span>
+      <span className="Name">{props.store.cat.name}</span>
     </div>
   );
 });

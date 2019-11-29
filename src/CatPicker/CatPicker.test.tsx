@@ -1,25 +1,27 @@
 //
-// CatRotator.test.tsx
+// CatPicker.test.tsx
 //
 // Copyright © 2019 Kuamka Ltd All rights reserved.
 //
 
 import React from "react";
-import ReactDOM from "react-dom";
+import { cleanup, render } from "@testing-library/react";
 
 import { CatPicker } from "./CatPicker";
-import testCat from "../TestCat.svg";
+import { CatStore } from "../CatStore";
 
-describe("CatRotator", () => {
+describe("CatPicker", () => {
+  let catStore: CatStore;
+
+  beforeEach(() => {
+    catStore = new CatStore();
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
   test("renders without crashing", () => {
-    const div = document.createElement("div");
-    const cats = [
-      {
-        name: "Test Cat",
-        image: testCat
-      }
-    ];
-    ReactDOM.render(<CatPicker cats={cats} onChange={cat => {}} />, div);
-    ReactDOM.unmountComponentAtNode(div);
+    render(<CatPicker store={catStore} />);
   });
 });
