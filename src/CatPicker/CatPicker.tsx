@@ -8,7 +8,6 @@ import { observer } from "mobx-react-lite";
 import React from "react";
 import Select from "react-select";
 
-import { CatInfo } from "../CatInfo";
 import { CatStore } from "../CatStore";
 
 import "./CatPicker.scss";
