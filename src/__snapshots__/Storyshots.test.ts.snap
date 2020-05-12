@@ -116,6 +116,7 @@ exports[`Storyshots CatApp render 1`] = `
     onClick={[Function]}
   >
     <img
+      alt="Miss Marple"
       className="Image"
       src="Marple.jpg"
     />
@@ -147,7 +148,7 @@ exports[`Storyshots CatPicker render 1`] = `
         <div
           className=" css-1uccc91-singleValue"
         >
-          Cat 1
+          Miss Marple
         </div>
         <div
           className="css-1g6gooi"
@@ -244,13 +245,14 @@ exports[`Storyshots CatRotator render 1`] = `
   onClick={[Function]}
 >
   <img
+    alt="Miss Marple"
     className="Image"
-    src="TestCat.svg"
+    src="Marple.jpg"
   />
   <span
     className="Name"
   >
-    Test Cat
+    Miss Marple
   </span>
 </div>
 `;
