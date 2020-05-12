@@ -4,33 +4,32 @@
 // Copyright © 2019 Kuamka Ltd. All rights reserved.
 //
 
-import React, { useState } from "react";
+import { observer } from "mobx-react-lite";
+import React from "react";
 import Select from "react-select";
 
-import { CatInfo } from "../CatInfo";
+import { CatStore } from "../CatStore";
 
 import "./CatPicker.scss";
 
 export interface CatPickerProps {
-  cats: CatInfo[];
-  onChange: (cat: CatInfo) => void;
+  store: CatStore;
 }
 
-export const CatPicker = React.memo((props: CatPickerProps) => {
-  const options = props.cats.map(cat => {
+export const CatPicker = observer((props: CatPickerProps) => {
+  const options = props.store.availableCats.map(cat => {
     return { label: cat.name, value: cat };
   });
-
-  const [state, setState] = useState({ selectedOption: options[0] });
 
   return (
     <div className="CatPicker">
       <Select
-        value={state.selectedOption}
+        value={options.find(option => {
+          return option.value === props.store.cat;
+        })}
         options={options}
         onChange={(newOption: any) => {
-          props.onChange(newOption.value);
-          setState({ selectedOption: newOption });
+          props.store.cat = newOption.value;
         }}
       />
     </div>

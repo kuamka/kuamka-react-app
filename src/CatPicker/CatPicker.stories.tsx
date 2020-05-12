@@ -5,30 +5,14 @@
 //
 
 import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
 
 import React from "react";
 
 import { CatPicker } from "./CatPicker";
-import testCat from "../TestCat.svg";
+import { CatStore } from "../CatStore";
 
 const stories = storiesOf("CatPicker", module);
 
-const cats = [
-  {
-    name: "Cat 1",
-    image: testCat
-  },
-  {
-    name: "Cat 2",
-    image: testCat
-  },
-  {
-    name: "Cat 3",
-    image: testCat
-  }
-];
+const store = new CatStore();
 
-stories.add("render", () => (
-  <CatPicker cats={cats} onChange={action("New cat selected")} />
-));
+stories.add("render", () => <CatPicker store={store} />);
